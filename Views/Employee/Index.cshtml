@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center;">Employees</h2>
+
+@Html.ActionLink("Create New","Create","Employee",htmlAttributes: new {@class="btn btn-success"})
+
+<table class="table table-bordered table-dark table-hover">
+
+    <tr>
+        <th>@Html.DisplayNameFor(ww => ww.Emp_Id)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Fname)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Lname)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Bod)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Boh)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Url)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Email)</th>
+        <th>@Html.DisplayNameFor(ww => ww.Dept_Id)</th>
+        <th></th>
+    </tr>
+
+    @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(ww => item.Emp_Id)</td>
+                    <td>@Html.DisplayFor(ww => item.Fname)</td>
+                    <td>@Html.DisplayFor(ww => item.Lname)</td>
+                    <td>@Html.DisplayFor(ww => item.Bod)</td>
+                    <td>@Html.DisplayFor(ww => item.Boh)</td>
+                    <td>@Html.DisplayFor(ww => item.Url)</td>
+                    <td>@Html.DisplayFor(ww => item.Email)</td>
+                    <td>@Html.DisplayFor(ww => item.Department.Dept_Name)</td>
+                    <td class="d-flex flex-row">
+                        @Html.ActionLink("Edit", "Edit", "Employee",routeValues:new {item.Emp_Id}, htmlAttributes: new { @class = "btn btn-primary" }) |
+                        @Html.ActionLink("Details", "Details", "Employee", routeValues: new { item.Emp_Id }, htmlAttributes: new { @class = "btn btn-secondary" }) |
+                        @Html.ActionLink("Delete", "Delete", "Employee", routeValues: new { item.Emp_Id }, htmlAttributes: new { @class = "btn btn-danger" }) 
+                    </td>
+                </tr>
+            }
+
+</table>
