@@ -86,5 +86,14 @@ namespace MvcHtmlHelper.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Details(int Emp_Id)
+        {
+            var emp = db.Employees.FirstOrDefault(ww => ww.Emp_Id == Emp_Id);
+            var depts = db.Departments.ToList();
+            ViewBag.depts = new SelectList(depts, "Dept_Id", "Dept_Name");
+            return View(emp);
+        }
+
     }
 }
