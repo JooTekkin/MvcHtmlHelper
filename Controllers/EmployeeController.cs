@@ -1,4 +1,5 @@
 ﻿using MvcHtmlHelper.Models;
+using MvcPureHtml.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,5 +23,30 @@ namespace MvcHtmlHelper.Controllers
             var emps = db.Employees.Include(ee => ee.Department).ToList();
             return View(emps);
         }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var depts = db.Departments.ToList();
+            ViewBag.depts = new SelectList(depts, "Dept_Id", "Dept_Name", 2);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Employees.Add(employee);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
     }
 }

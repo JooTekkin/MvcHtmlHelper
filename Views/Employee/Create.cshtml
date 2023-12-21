@@ -1,0 +1,73 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 style="text-align: center;">Create New Employee</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Fname, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Fname, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Fname, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Lname, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Lname, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Lname, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Pwd, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Pwd, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Pwd, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.CPwd, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.CPwd, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.CPwd, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Bod, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Bod, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Bod, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Boh, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Boh, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Boh, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Url, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Url, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Url, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Email, htmlAttributes: new { @class = "form-label" })
+        @Html.EditorFor(ww => ww.Email, additionalViewData: new { htmlAttributes = new { @class = "form-control mx-3" } })
+        @Html.ValidationMessageFor(ww => ww.Email, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <div class="d-flex flex-row mb-3">
+        @Html.LabelFor(ww => ww.Dept_Id, htmlAttributes: new { @class = "form-label" })
+        @Html.DropDownListFor(ww => ww.Dept_Id,ViewBag.depts as SelectList,htmlAttributes: new {@class="form-select"})
+        @Html.ValidationMessageFor(ww => ww.Dept_Id, "", htmlAttributes: new { @class = "text text-danger" })
+    </div>
+
+    <input type="submit" class="btn btn-warning position-relative start-50" />
+}
+
+@Html.ActionLink("Back", "Index", "Employee", htmlAttributes: new { @class = "btn btn-danger position-relative start-50" })
+@section Secript
+{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
