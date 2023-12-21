@@ -95,5 +95,13 @@ namespace MvcHtmlHelper.Controllers
             return View(emp);
         }
 
+        [HttpGet]
+        public ActionResult Delete(int Emp_Id)
+        {
+            var emp = db.Employees.FirstOrDefault(ww => ww.Emp_Id == Emp_Id);
+            db.Employees.Remove(emp);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
