@@ -103,5 +103,12 @@ namespace MvcHtmlHelper.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+       
+        public ActionResult CheckMail(string Email)
+        {
+            var check = db.Employees.Any(ww => ww.Email == Email);
+            return Json(!check, JsonRequestBehavior.AllowGet);
+        }
     }
 }

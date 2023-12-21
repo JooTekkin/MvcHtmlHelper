@@ -56,6 +56,7 @@ namespace MvcPureHtml.Models
 
         [Display(Name = "E_mail :")]
         [DataType(DataType.EmailAddress)]
+        [System.Web.Mvc.Remote("CheckMail","Employee",ErrorMessage ="Email Exists")]
         public string Email { get; set; }
 
         [Display(Name = "Department:")]
